@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Trung Thu Vui Vẻ</title>
+  <style>
+    body {
+      background: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      font-weight: bold;
+      background: linear-gradient(45deg, red, orange, yellow, green, cyan, blue, violet);
+      -webkit-background-clip: text;
+      color: transparent;
+      animation: glow 2s infinite alternate;
+      text-align: center;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 5px red, 0 0 10px yellow; }
+      to   { text-shadow: 0 0 20px cyan, 0 0 30px violet; }
+    }
+
+    .heart {
+      width: 100px;
+      height: 90px;
+      position: relative;
+      transform: scale(3);
+      animation: heartbeat 1s infinite;
+      margin-bottom: 40px;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 100px;
+      height: 150px;
+      border-radius: 50px 50px 0 0;
+      background: linear-gradient(45deg, pink, red, violet);
+    }
+
+    .heart::before {
+      left: 100px;
+      transform: rotate(-45deg);
+      transform-origin: 0 100%;
+    }
+
+    .heart::after {
+      left: 0;
+      transform: rotate(45deg);
+      transform-origin: 100% 100%;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(3); }
+      50% { transform: scale(3.3); }
+    }
+
+    .stars {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0; left: 0;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle 2s infinite ease-in-out;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="stars"></div>
+  <div class="heart"></div>
+  <h1>💖 Chúc TRƯƠNG NGỌC THANH NHI bé iu của anh Trung Thu vui vẻ 💖<br>Luôn hạnh phúc như ánh trăng và iu anh mãi mãi nhooo 🌙✨</h1>
+
+  <script>
+    // tạo sao lung linh nền trời
+    const starsContainer = document.querySelector('.stars');
+    for (let i = 0; i < 100; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
+      star.style.top = Math.random() * 100 + '%';
+      star.style.left = Math.random() * 100 + '%';
+      star.style.animationDuration = (1 + Math.random() * 3) + 's';
+      starsContainer.appendChild(star);
+    }
+  </script>
+</body>
+</html>
